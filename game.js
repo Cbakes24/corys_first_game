@@ -16,6 +16,11 @@ let checkDead = setInterval(() => {
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue('top'))
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'))
 
-    if(characterTop === 150 && blockLeft === 0)
+    if(characterTop >= 130 && blockLeft > 0 && blockLeft < 20 ){
+        block.style.animation = "none"
+        block.style.display = "none"
+        alert('You Fuggin Lost')
+
+    }
 
 }, 10)
