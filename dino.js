@@ -8,21 +8,22 @@ const DINO_FRAME_COUNT = 2
 const FRAME_TIME = 100
 
 let isJumping
-let DinoFrame 
-
+let dinoFrame 
+let currentFrameTime
 export function setupDino() {
  isJumping = false
  dinoFrame = 0
+ currentFrameTime = 0
 }
 
 export function updateDino(delta, speedScale) {
-    handleRun()
+    handleRun(delta, speedScale)
     handleJump()
 }
 
-function handleRun(delta, speedScale, dinoFrame) {
+function handleRun(delta, speedScale) {
     if( isJumping) {
-        dinoElem.source = `images/dino-stationary.jpg`
+        dinoElem.source = `images/dino-stationary.png`
         return
     }
 
@@ -32,6 +33,7 @@ function handleRun(delta, speedScale, dinoFrame) {
         // dinoFame +1 takes us to the next dino frame
         dinoFrame  = (dinoFrame + 1) % DINO_FRAME_COUNT
         dinoElem.src = `images/dino-run-${dinoFrame}.png`
+        currentFrameTime -= FRAME_TIME
     }
     // as the speedScale goes up for the game difficulty the jump speed of the dino needs to go up as well
     currentFrameTime += delta * speedScale
