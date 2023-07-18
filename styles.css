@@ -1,3 +1,10 @@
+/* applies style and decoration for everything before and 
+after every (*) HTML element like div, span, p
+It is a way of adding consistent behavior to all your elements without having to
+add to the HTML */
+/* You actually prob dont need the * and before and after for what Im doing here you could just use * */
+/* Before will add syles before the html element specified and after applies it after
+in this case * means everythin but it could be p::before or div::after  */
 *, *::before, *::after {
   box-sizing: border-box;
   user-select: none;
