@@ -2,7 +2,7 @@ import { getCustomProperty, incrementCustomProperty, setCustomProperty } from ".
 
 const dinoElem = document.querySelector("[data-dino]");
 const JUMP_SPEED = 0.45;
-const GRAVITY = 0.0015;
+const GRAVITY = 0.001;
 // we have 2 animations frames for our dino, left step and right step
 const DINO_FRAME_COUNT = 3;
 // every frame should last 100ms so the animation changes 10 times persecond
@@ -24,7 +24,7 @@ export function setupDino() {
 
 export function updateDino(delta, speedScale) {
   handleRun(delta, speedScale);
-  handleJump(delta);
+  handleJump(delta, speedScale);
 }
 
 function handleRun(delta, speedScale) {
@@ -45,7 +45,7 @@ function handleRun(delta, speedScale) {
   currentFrameTime += delta * speedScale;
 }
 
-function handleJump(delta) {
+function handleJump(delta, speedScale) {
   if (!isJumping) return;
 
   incrementCustomProperty(dinoElem, "--bottom", yVelocity * delta)
@@ -55,7 +55,7 @@ function handleJump(delta) {
         isJumping = false
     }
     //  keeps gravity with frame rate of screen
-    yVelocity -= GRAVITY * delta
+    yVelocity -= GRAVITY * delta 
 }
 
 function onJump(e) {

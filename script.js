@@ -28,7 +28,7 @@ function update(time) {
     }
 
     const delta = time - lastTime
-    // console.log(delta)
+    console.log(delta)
 
     updateGround(delta, speedScale)
     updateDino(delta, speedScale)
