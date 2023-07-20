@@ -27,10 +27,22 @@ export function updateDino(delta, speedScale) {
   handleJump(delta, speedScale);
 }
 
+export function getDinoRect() {
+  console.log(dinoElem.getBoundingClientRect())
+  return dinoElem.getBoundingClientRect()
+}
+
+
+export function setDinoLose() {
+  // dinoElem.style.width = "350px"
+  // dinoElem.style.height = "600px"
+ dinoElem.src = "images/Ayla_sad.png"
+}
+
 function handleRun(delta, speedScale) {
   if (isJumping) {
-    dinoElem.source = `images/Ayla-run2.png`;
-    return;
+    dinoElem.src = `images/Ayla-run2.png`;
+    return dinoElem
   }
 
   if (currentFrameTime >= FRAME_TIME) {

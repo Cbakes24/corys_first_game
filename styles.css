@@ -55,7 +55,7 @@ body {
   position: absolute;
   left: 1%;
   height: 40%;
-  bottom: calc(var(--bottom) * 1%);
+  bottom: calc(var(--bottom) * .65%);
 }
 
 .cactus {
@@ -63,7 +63,7 @@ body {
   left: calc(var(--left) * 1%);
   height: 30%;
   bottom: 0;
-}
+} 
 
 /* #game {
     width: 500px;
